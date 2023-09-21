@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Interop-Bold.otf",
+      "sha1": "74f8676345b79349878c31e1244528c447a28df7"
+    },
+    {
+      "path": "src/assets/fonts/Interop-ExtraBold.otf",
+      "sha1": "e89a630fae730e2f763c9356a1fbf64ce985648b"
+    },
+    {
+      "path": "src/assets/fonts/Interop-ExtraLight.otf",
+      "sha1": "3ad1d12725db5252355d28510f084bfc66968e0b"
+    },
+    {
+      "path": "src/assets/fonts/Interop-Light.otf",
+      "sha1": "649f2bd587f616a74b89d72e7efdff2350bae526"
+    },
+    {
+      "path": "src/assets/fonts/Interop-Medium.otf",
+      "sha1": "ba2f43e7a2b9c9c26fe9ab60377ada3c68f5f68d"
+    },
+    {
+      "path": "src/assets/fonts/Interop-Regular.otf",
+      "sha1": "15743b4b4976c6998d07b990c41aa1c475f4413a"
+    },
+    {
+      "path": "src/assets/fonts/Interop-SemiBold.otf",
+      "sha1": "52b528203a7b9deb194887121c46b0c5f564538c"
+    },
+    {
+      "path": "src/assets/fonts/Interop-Thin.otf",
+      "sha1": "3fdb203668f44794be7291b782d4c22a853909fb"
+    },
+    {
+      "path": "src/assets/fonts/PartialSansKR-Regular.otf",
+      "sha1": "3d6c8d893b7d0eeaeb211cee443c6fcde937182b"
+    }
+  ]
+}
