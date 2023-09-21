@@ -9,16 +9,24 @@ import useAdduser from '../adduser/use-adduser'
 export default function AddUserScreen({ navigation }) {
   const {
     titleNum,
+    setTitleNum,
     onPressNext
   } = useAdduser();
   
   useEffect(() => {
-    if(titleNum > 4) navigation.navigate('AddUserSuccess');
+    if(titleNum > 4) {
+      navigation.navigate('AddUserSuccess');
+      setTitleNum(0);
+    }
   }, [titleNum]);
+
+  const onPress = () => {
+    if(titleNum > 0) setTitleNum(titleNum - 1);
+  }
 
   return (
     <View style={styles.container}>
-      <AddUserHeader />
+      <AddUserHeader onPress={onPress} />
       <AddUserContent
         titleNum={titleNum}
       />
