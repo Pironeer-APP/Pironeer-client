@@ -9,6 +9,7 @@ export default function useAdduser() {
 
   return {
     titleNum,
+    setTitleNum,
     onPressNext
   }
 }
