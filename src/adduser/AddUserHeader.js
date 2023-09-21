@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function AddUserHeader() {
+export default function AddUserHeader({onPress}) {
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
         <Image source={require("../assets/icons/left-arrow.png")} style={styles.image} />
       </TouchableOpacity>
       <View style={{ flex: 1 }} />
