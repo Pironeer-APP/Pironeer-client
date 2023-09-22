@@ -1,9 +1,15 @@
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react'
-import { COLORS } from '../assets/Theme';
-import { FontStyledText } from '../components/Text';
+import AddUserInput from './AddUserInput';
 
-export default function AddUserContent({titleNum}) {
+export default function AddUserContent({
+  level, name, phone, email,
+  titleNum,
+  onInputLevel,
+  onInputName,
+  onInputPhone,
+  onInputEmail,
+}) {
   const titleList = [
     "신입 부원의 기수를 입력해 주세요",
     "이름을 입력해 주세요",
@@ -17,36 +23,50 @@ export default function AddUserContent({titleNum}) {
       <Text style={styles.contentTitle}>{titleList[titleNum]}</Text>
       <ScrollView>
       {titleNum >= 3 &&
-      <View style={styles.inputWrapper}>
-      {titleNum > 3 &&
-        <FontStyledText style={styles.inputDesc}>신입 부원 이메일</FontStyledText>
-      }
-      <TextInput style={styles.textInput} placeholder="piropiro@gmail.com" placeholderTextColor={COLORS.light_gray} />
-      </View>
+      <AddUserInput
+        value={email}
+        titleNum={titleNum}
+        num={3}
+        inputDesc="신입 부원 이메일"
+        onTextInput={onInputEmail}
+        placeholder="piropiro@gmail.com"
+        maxLength={48}
+      />
       }
       {titleNum >= 2 &&
-      <View style={styles.inputWrapper}>
-      {titleNum > 2 &&
-        <FontStyledText style={styles.inputDesc}>신입 부원 전화번호</FontStyledText>
-      }
-      <TextInput style={styles.textInput} placeholder="010-0000-0000" placeholderTextColor={COLORS.light_gray} />
-      </View>
+      <AddUserInput
+        value={phone}
+        titleNum={titleNum}
+        num={2}
+        inputDesc="신입 부원 전화번호"
+        onTextInput={onInputPhone}
+        placeholder="010-0000-0000"
+        keyboardType='numeric' //숫자키보드
+        maxLength={13}
+      />
       }
       {titleNum >= 1 &&
-      <View style={styles.inputWrapper}>
-      {titleNum > 1 &&
-        <FontStyledText style={styles.inputDesc}>신입 부원 이름</FontStyledText>
-      }
-      <TextInput style={styles.textInput} placeholder="김피로" placeholderTextColor={COLORS.light_gray} />
-      </View>
+      <AddUserInput
+        value={name}
+        titleNum={titleNum}
+        num={1}
+        inputDesc="신입 부원 이름"
+        onTextInput={onInputName}
+        placeholder="김피로"
+        maxLength={24}
+      />
       }
       {titleNum >= 0 &&
-      <View style={styles.inputWrapper}>
-      {titleNum > 0 &&
-        <FontStyledText style={styles.inputDesc}>신입 부원 기수</FontStyledText>
-      }
-      <TextInput style={styles.textInput} placeholder="19" placeholderTextColor={COLORS.light_gray} />
-      </View>
+      <AddUserInput
+        value={level}
+        titleNum={titleNum}
+        num={0}
+        inputDesc="신입 부원 기수"
+        onTextInput={onInputLevel}
+        placeholder="19"
+        keyboardType='numeric'
+        maxLength={12}
+      />
       }
       </ScrollView>
     </View>
@@ -56,29 +76,12 @@ export default function AddUserContent({titleNum}) {
 const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
+    paddingHorizontal: 10,
   },
   contentTitle: {
     fontFamily: 'Interop-Bold',
     color: 'white',
     fontSize: 25,
     paddingVertical: 20,
-    paddingHorizontal: 10
   },
-  inputWrapper: {
-    padding: 15
-  },
-  textInput: {
-    color: 'white',
-    height: 60,
-    marginBottom: 15,
-    borderWidth: 2,
-    paddingHorizontal: 10,
-    fontSize: 25,
-    borderBottomColor: COLORS.light_gray,
-  },
-  inputDesc: {
-    color: COLORS.green,
-    fontSize: 17,
-    paddingHorizontal: 10,
-  }
 })
