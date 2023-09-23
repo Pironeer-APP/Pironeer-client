@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { autoHyphen, fetchPost } from '../utils';
-import { SERVER_URL } from '../variables';
 
 export default function useAdduser() {
   const [titleNum, setTitleNum] = useState(0);
