@@ -3,6 +3,7 @@ import React from 'react'
 import { MiniButton } from '../components/Button'
 import { COLORS } from '../assets/Theme'
 import { onPressHome } from '../utils'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function AddUserSuccessScreen({ navigation }) {
   const onPress = () => {
@@ -13,7 +14,7 @@ export default function AddUserSuccessScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={require('../assets/icons/success.png')} style={styles.image} />
       <Text style={styles.desc}>회원 정보 추가 완료</Text>
       <View style={styles.btnContainer}>
@@ -24,7 +25,7 @@ export default function AddUserSuccessScreen({ navigation }) {
         <MiniButton outline={false}>계속 추가</MiniButton>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

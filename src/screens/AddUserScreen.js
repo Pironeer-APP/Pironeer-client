@@ -1,4 +1,5 @@
-import { View, StyleSheet, TouchableOpacity, Keyboard } from 'react-native'
+import { View, StyleSheet, Keyboard, SafeAreaView, KeyboardAvoidingView } from 'react-native'
+
 import React, { useEffect } from 'react'
 import { COLORS } from '../assets/Theme'
 import { MainButton } from '../components/Button'
@@ -44,29 +45,35 @@ export default function AddUserScreen({ navigation }) {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <AddUserHeader onPressBack={onPressBack} />
-      <AddUserContent
-        titleNum={titleNum}
-        level={level} name={name}
-        phone={phone} email={email}
-        onInputLevel={onInputLevel}
-        onInputName={onInputName}
-        onInputPhone={onInputPhone}
-        onInputEmail={onInputEmail}
-      />
-      <TouchableOpacity onPress={onPressNext}>
-        <MainButton>다음</MainButton>
-      </TouchableOpacity>
-    </View>
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={45}
+        behavior={Platform.select({ios: 'padding', android: undefined})}
+        style={{flex: 1}}>
+      <View style={{flex: 1}}>
+        <AddUserContent
+          titleNum={titleNum}
+          level={level} name={name}
+          phone={phone} email={email}
+          onInputLevel={onInputLevel}
+          onInputName={onInputName}
+          onInputPhone={onInputPhone}
+          onInputEmail={onInputEmail}
+        />
+        <MainButton
+          content="다음"
+          onPress={onPressNext} />
+      </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    padding: 20,
     backgroundColor: COLORS.bg_black
   },
 })
