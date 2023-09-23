@@ -1,21 +1,29 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Button } from 'react-native'
 import React from 'react'
 import { FontStyledText } from './Text'
 import { COLORS } from '../assets/Theme'
 
-export const MainButton = ({children}) => {
+export const MainButton = ({content, onPress}) => {
   return (
-    <View style={styles.container}>
-      <FontStyledText style={styles.text}>{children}</FontStyledText>
-    </View>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <FontStyledText style={styles.text}>{content}</FontStyledText>
+    </TouchableOpacity>
   )
 }
 
 export const MiniButton = ({outline, children}) => {
   return (
-    <View style={miniStyles({outline}).miniContainer}>
+    <TouchableOpacity style={miniStyles({outline}).miniContainer}>
       <FontStyledText style={miniStyles({outline}).miniText}>{children}</FontStyledText>
-    </View>
+    </TouchableOpacity>
+  )
+}
+
+export const LoginButton = ({content, onPress}) => {
+  return (
+    <TouchableOpacity style={styles.container}>
+      <FontStyledText></FontStyledText>
+    </TouchableOpacity>
   )
 }
 
